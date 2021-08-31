@@ -1,0 +1,11 @@
+<div>
+  <book-purchase-search-book (search)="onSearch($event)"></book-purchase-search-book>
+</div>
+<div>
+  <ng-container *ngIf="(error$ | async) as errorMessage;else bookList">
+    <span>{{errorMessage | titlecase}}</span>
+  </ng-container>
+  <ng-template #bookList>
+    <book-purchase-book-list [books]="books$"></book-purchase-book-list>
+  </ng-template>
+</div>

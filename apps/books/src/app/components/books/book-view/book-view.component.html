@@ -1,0 +1,48 @@
+<ng-container *ngIf="(error$ | async) as errorMessage;else bookDetails">
+  <span>{{errorMessage | titlecase}}</span>
+</ng-container>
+
+
+<ng-template #bookDetails>
+  <div *ngIf="book?.id" fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-card>
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <mat-card-title>{{ book?.volumeInfo?.title }}</mat-card-title>
+          <mat-card-subtitle>{{
+            book?.volumeInfo?.subtitle || 'NA'
+            }}</mat-card-subtitle>
+        </div>
+        <div>
+          <img [src]="book?.volumeInfo?.imageLinks?.smallThumbnail" alt="Book" />
+        </div>
+      </div>
+      <mat-card-content>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div>
+            <div>
+              <b>Publisher: </b><span>{{ book?.volumeInfo?.publisher }}</span>
+            </div>
+            <div>
+              <b>Page Count: </b><span>{{ book?.volumeInfo?.pageCount }}</span>
+            </div>
+            <div>
+              <b>Language: </b><span>{{ book?.volumeInfo?.language }}</span>
+            </div>
+            <p class="card-content-container">{{ book?.volumeInfo?.description }}</p>
+            <div>
+              <span class="font-bold-500">Written By:</span>
+              <div>
+                {{ book?.volumeInfo?.authors?.toString() | titlecase }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      <div>
+        <button color="accent" mat-raised-button (click)="addtoCart()">Add To Cart</button>
+        <button color="accent" mat-raised-button (click)="buyBook()">Buy</button>
+      </div>
+    </mat-card>
+  </div>
+</ng-template>
