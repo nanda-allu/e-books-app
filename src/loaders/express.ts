@@ -32,10 +32,7 @@ export default (app: Application) => {
             next();
         });
     });
-    let xport: any = process.env.PORT;
-    if (xport === null || xport === "") {
-        xport = 8080;
-    }
+    let xport: any = process.env.PORT || 3000;
     console.log(xport)
     app.listen(xport, host, () => {
         logger.logAsInfo(`Server listing at http://${host}:${xport}`);
