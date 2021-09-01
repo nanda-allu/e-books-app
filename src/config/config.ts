@@ -9,7 +9,7 @@ const MONGODB_ATLAS_URL =
 
 export default {
     port: process.env.PORT,
-    host: "localhost",
+    host: "0.0.0.0",
     databaseURL: MONGODB_ATLAS_URL,
 
     logs: {

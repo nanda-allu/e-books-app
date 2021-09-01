@@ -22,12 +22,10 @@ export default (app: Application) => {
     app.use(cors());
     app.set("view engine", "ejs");
 
-    let xport: any = process.env.PORT || 3000;
-    app.set("port", xport);
-
+    
     //Append routes to the application
     initRoutes(app);
-
+    
     // Append transaction-ID to each request
     app.use((req: Request, res: Response, next: NextFunction) => {
         apiRequest.run(() => {
@@ -35,6 +33,7 @@ export default (app: Application) => {
             next();
         });
     });
+    let xport: any = process.env.PORT || 3000;
     console.log(xport)
     app.listen(xport, host, () => {
         logger.logAsInfo(`Server listing at http://${host}:${xport}`);
