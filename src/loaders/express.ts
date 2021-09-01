@@ -33,9 +33,9 @@ export default (app: Application) => {
             next();
         });
     });
-    let xport: any = process.env.PORT || 3000;
-    console.log(xport)
-    app.listen(xport, host, () => {
-        logger.logAsInfo(`Server listing at http://${host}:${xport}`);
+    let PORT: any = process.env.PORT || 3000;
+    
+    app.listen(PORT, host, () => {
+        logger.logAsInfo(`Server listing at http://${host}:${PORT}`);
     });
 }
