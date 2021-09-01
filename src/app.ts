@@ -10,6 +10,6 @@ const app = express();
 async function initApplication() {
     await initLoaders(app);
 }
-
+console.log("Added log")
 initApplication();
 module.exports = app;
