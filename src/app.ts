@@ -10,6 +10,5 @@ const app = express();
 async function initApplication() {
     await initLoaders(app);
 }
-console.log("Updated log file")
 initApplication();
 module.exports = app;
