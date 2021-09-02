@@ -21,7 +21,7 @@ export default {
         clientSecret:
             process.env.OKTA_OAUTH2_CLIENT_SECRET_WEB ||
             "ADDT1boPI6PkjNIaR-M-fcd6XxbvNvHB22Lf-BoK",
-        baseUrl: process.env.SERVER_URL || "http://localhost:3000",
+        baseUrl: process.env.SERVER_URL || "https://e-books-prod.herokuapp.com",
         issuer:
             process.env.OKTA_OAUTH2_ISSUER ||
             "https://dev-17020959.okta.com/oauth2/default",
